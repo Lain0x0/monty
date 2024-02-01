@@ -2,15 +2,12 @@
 #define MONTY_H
 
 #define _GNU_SOURCE
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
-
-/* The data structures functions goes here */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,48 +39,45 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* The functions goes here */
-
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
+stack_t *head = NULL;
 
-/*file operations*/
-void o_file(char *f_name);
-int p_line(char *buffer, int l_number, int format);
+
+void o_file(char *file_name);
+int p_line(char *buffer, int line_number, int format);
 void r_file(FILE *);
 int l_chars(FILE *);
-void f_fun(char *, char *, int, int);
+void find_fun(char *, char *, int, int);
 
-/*Stack operations*/
-stack_t *c_node(int n);
+
+stack_t *create_node(int n);
 void fr_nodes(void);
 void print_stack(stack_t **, unsigned int);
 void add_stack(stack_t **, unsigned int);
 void add_queue(stack_t **, unsigned int);
 
-void call_func(op_func, char *, char *, int, int);
+void call_fun(op_func, char *, char *, int, int);
 
 void print_top(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-void Swap_nodes(stack_t **, unsigned int);
+void swap_nodes(stack_t **, unsigned int);
 
-/*Math operations with nodes*/
+
 void addi_nodes(stack_t **, unsigned int);
 void subs_nodes(stack_t **, unsigned int);
 void divi_nodes(stack_t **, unsigned int);
 void multi_nodes(stack_t **, unsigned int);
 void modul_nodes(stack_t **, unsigned int);
 
-/*String operations*/
 void print_char(stack_t **, unsigned int);
 void print_string(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 
-/*Error hanlding*/
 void error(int error_c, ...);
-void more_errores(int error_c, ...);
-void string_error(int error_c, ...);
+void more_errors(int error_c, ...);
+void str_err(int error_c, ...);
 void rotr(stack_t **, unsigned int);
 
 #endif

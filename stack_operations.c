@@ -10,7 +10,7 @@ void multi_nodes(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_errores(8, line_number, "mul");
+		more_errors(8, line_number, "mul");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n * (*stack)->prev->n;
@@ -21,21 +21,21 @@ void multi_nodes(stack_t **stack, unsigned int line_number)
 
 
 /**
- * modul_nodes - Adds the top two elements of the stack.
+ * mod_nodes - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void modul_nodes(stack_t **stack, unsigned int line_number)
+void mod_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		more_errores(8, line_number, "mod");
+		more_errors(8, line_number, "mod");
 
 
 	if ((*stack)->n == 0)
-		more_errores(9, line_number);
+		more_errors(9, line_number);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = sum;

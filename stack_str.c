@@ -10,16 +10,16 @@ void print_char(stack_t **stack, unsigned int line_number)
 	int ascii;
 
 	if (stack == NULL || *stack == NULL)
-		string_error(11, line_number);
+		str_err(11, line_number);
 
 	ascii = (*stack)->n;
 	if (ascii < 0 || ascii > 127)
-		string_error(10, line_number);
+		str_err(10, line_number);
 	printf("%c\n", ascii);
 }
 
 /**
- * print_str - Prints a string.
+ * print_string - Prints a string.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @ln: Interger representing the line number of of the opcode.
  */
